@@ -12,7 +12,7 @@ echo -n "Seleccione una opcion [1 - 2]"
      1)
         echo "Escriba el nuevo nombre del equipo:"
         read nuevohostname
-        hostname
+        hostname $nuevohostname
      ;;
      2)
         echo "No cambiado, se mantiene:"
