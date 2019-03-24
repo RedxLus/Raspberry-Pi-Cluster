@@ -21,3 +21,4 @@ echo -n "Seleccione una opcion [1 - 2]"
      *)
         echo "Numero no reconocido."
      ;;
+esac
