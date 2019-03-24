@@ -13,6 +13,8 @@ echo -n "Seleccione una opcion [1 - 2]"
         echo "Escriba el nuevo nombre del equipo:"
         read nuevohostname
         hostnamectl set-hostname $nuevohostname
+        sed -i 's/$HOSTNAME/$nuevohostname/g' "/etc/hosts"
+        echo $HOSTNAME
         nano /etc/hosts
         reboot
      ;;
