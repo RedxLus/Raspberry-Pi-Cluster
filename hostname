@@ -2,17 +2,22 @@
 
 ##CAMBIAR HOSTNAME##
 clear
+hostn=$(cat /etc/hostname)
 echo "ESTE ES SU NOMBRE DE EQUIPO ACTUAL:"
 hostname
 echo "¿QUIERE CAMBIARLO?"
 echo "1. Si"
-echo "2. No"
+echo "2. No. Salir."
 echo -n "Seleccione una opcion [1 - 2]"
   read seleccion
   case $seleccion in
      1)
         echo "Escriba el nuevo nombre del equipo:"
         read nuevohostname
+    
+sed -i "s/$hostn/$nuevohostname/g" /etc/hosts
+sed -i "s/$hostn/$nuevohostname/g" /etc/hostname
+        
         hostnamectl set-hostname $nuevohostname
         sed -i 's/$HOSTNAME/$nuevohostname/g' "/etc/hosts"
         echo $HOSTNAME
@@ -27,25 +32,3 @@ echo -n "Seleccione una opcion [1 - 2]"
         echo "Numero no reconocido."
      ;;
 esac
-
-
-#Assign existing hostname to $hostn
-hostn=$(cat /etc/hostname)
-
-#Display existing hostname
-echo "Existing hostname is $hostn"
-
-#Ask for new hostname $newhost
-echo "Enter new hostname: "
-read newhost
-
-#change hostname in /etc/hosts & /etc/hostname
-sudo sed -i "s/$hostn/$newhost/g" /etc/hosts
-sudo sed -i "s/$hostn/$newhost/g" /etc/hostname
-
-#display new hostname
-echo "Your new hostname is $newhost"
-
-#Press a key to reboot
-read -s -n 1 -p "Press any key to reboot"
-sudo reboot
