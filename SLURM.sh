@@ -1,28 +1,27 @@
 #! /bin/bash
 
-clear
-echo "ESTE ES SU NOMBRE DE EQUIPO ACTUAL:"
-hostname
-echo "¿QUIERE CAMBIARLO?"
-echo "1. Si"
-echo "2. No"
-echo -n "Seleccione una opcion [1 - 2]"
-  read seleccion
-  case $seleccion in
-     1)
-        echo "Escriba el nuevo nombre del equipo:"
-        read nuevohostname
-        hostnamectl set-hostname $nuevohostname
-        sed -i 's/$HOSTNAME/$nuevohostname/g' "/etc/hosts"
-        echo $HOSTNAME
-        nano /etc/hosts
-        reboot
-     ;;
-     2)
-        echo "No cambiado, se mantiene:"
-        hostname
-     ;;
-     *)
-        echo "Numero no reconocido."
-     ;;
-esac
+apt install ntpdate -y
+
+echo"Inserte la IP1:"
+read ip01
+echo"Inserte el hostname1:"
+read hostname01
+echo "$ip01      $hostname01" >> /etc/hosts
+
+echo"Inserte la IP2:"
+read ip02
+echo"Inserte el hostname2:"
+read hostname02
+echo "$ip02      $hostname02" >> /etc/hosts
+
+echo"Inserte la IP3:"
+read ip03
+echo"Inserte el hostname3:"
+read hostname03
+echo "$ip03      $hostname03" >> /etc/hosts
+
+apt install slurm-wlm -y
+cd /etc/slurm-llnl
+cp /usr/share/doc/slurm-client/examples/slurm.conf.simple.gz .
+gzip -d slurm.conf.simple.gz
+mv slurm.conf.simple slurm.conf
