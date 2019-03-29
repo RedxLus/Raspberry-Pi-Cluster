@@ -10,12 +10,12 @@ echo "b. Añadir solo 1"
 echo -n "Seleccione una opcion [a - b]"
   read ipyhostname
   case $ipyhostname in
-     a)
+     a|A)
         wget https://raw.githubusercontent.com/RedxLus/Raspberry-Pi-Cluster/master/Archivos/IP-hostname-loop.sh --no-check-certificate
         chmod +x IP-hostname-loop.sh
         sh IP-hostname-loop.sh
      ;;
-     b)
+     b|B)
         wget https://raw.githubusercontent.com/RedxLus/Raspberry-Pi-Cluster/master/Archivos/ips-hosts.sh --no-check-certificate
         chmod +x ips-hosts.sh
         sh ips-hosts.sh
