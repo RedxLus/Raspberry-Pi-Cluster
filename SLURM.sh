@@ -5,6 +5,26 @@ apt install ntpdate -y
 wget https://raw.githubusercontent.com/RedxLus/Raspberry-Pi-Cluster/master/Archivos/Nuevo-hostname-propio.sh --no-check-certificate
 sh Nuevo-hostname-propio.sh
 
+echo "a. Añadir muchas IPs y Hostnames" 
+echo "b. Añadir solo 1" 
+echo -n "Seleccione una opcion [a - b]"
+  read ipyhostname
+  case $ipyhostname in
+     a)
+        wget https://raw.githubusercontent.com/RedxLus/Raspberry-Pi-Cluster/master/Archivos/IP-hostname-loop.sh --no-check-certificate
+        chmod +x IP-hostname-loop.sh
+        sh IP-hostname-loop.sh
+     ;;
+     b)
+        wget https://raw.githubusercontent.com/RedxLus/Raspberry-Pi-Cluster/master/Archivos/ips-hosts.sh --no-check-certificate
+        chmod +x ips-hosts.sh
+        sh ips-hosts.sh
+     ;;
+     *)
+        echo "Numero no reconocido."
+     ;;
+  esac
+
 apt install slurm-wlm -y
 cd /etc/slurm-llnl
 cp /usr/share/doc/slurm-client/examples/slurm.conf.simple.gz .
