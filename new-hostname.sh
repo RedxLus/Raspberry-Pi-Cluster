@@ -7,7 +7,7 @@ echo "ESTE ES SU NOMBRE DE EQUIPO ACTUAL:"
 hostname
 echo "¿QUIERE CAMBIARLO?"
 echo "1. Si"
-echo "2. No. Salir."
+echo "2. No. (Salir)"
 echo -n "Seleccione una opcion [1 - 2]"
   read seleccion
   case $seleccion in
