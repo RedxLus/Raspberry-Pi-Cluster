@@ -2,6 +2,9 @@
 
 apt install ntpdate -y
 
+wget https://raw.githubusercontent.com/RedxLus/Raspberry-Pi-Cluster/master/Archivos/Nuevo-hostname-propio.sh --no-check-certificate
+sh Nuevo-hostname-propio.sh
+
 apt install slurm-wlm -y
 cd /etc/slurm-llnl
 cp /usr/share/doc/slurm-client/examples/slurm.conf.simple.gz .
@@ -27,3 +30,4 @@ else
 echo "Saliendo"
 fi
 
+reboot
