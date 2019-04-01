@@ -3,7 +3,7 @@
 archivohosts=/etc/hosts
 echo "¿Cuantas Ips y Hostnames quieres añadir?"
 echo "Escribe el numero por ejemplo 3"
-echo""
+echo ""
 read FINAL
 
 for x in $(seq 1 $FINAL)
