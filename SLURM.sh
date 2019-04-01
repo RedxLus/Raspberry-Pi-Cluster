@@ -37,23 +37,36 @@ gzip -d slurm.conf.simple.gz
 mv slurm.conf.simple slurm.conf
 
 ## SOLO NODO MAESTRO (CONTROLADOR) ##
-apt-get install net-tools
-la_ip=$(ifconfig|awk 'NR == 2'|awk '{print $2}'|cut -d ':' -f2)
-
-clear
-echo "SOLO LA IP DEL NODO MAESTRO (CONTROLADOR)"
 echo ""
-echo "Su IP es $la_ip. ¿Es el nodo maestro?. Puede modificarla despues en /etc/slurm-llnl/slurm.conf "
-echo "1. Si. Quiero añadirla automaticamente para que funcione el Cluster (la IP se añadira al archivo de configuracion)."
-echo "2. No. No es la ip del nodo maestro. Tengo que cambiarla despues en  /etc/slurm-llnl/slurm.conf."
+echo "¿Es el nodo MAESTRO o un nodo SIMPLE?"
+echo "1. Nodo MAESTRO (Controlador)" 
+echo "2. Nodo Simple" 
 echo -n "Seleccione una opcion [1 - 2]"
-read respuesta
+  read maestro_simple_nodos
+  case $maestro_simple_nodos in
+     1)
+      apt-get install net-tools
+      la_ip=$(ifconfig|awk 'NR == 2'|awk '{print $2}'|cut -d ':' -f2)
 
-if [ $respuesta = 1 ]
-then
-sed -i "s/ControlMachine=laptop/ControlMachine=$HOSTNAME/g" /etc/slurm-llnl/slurm.conf
-sed -i "s/#ControlAddr=/ControlAddr=/g" /etc/slurm-llnl/slurm.conf
-sed -i "s/ControlAddr=/ControlAddr=$la_ip/g" /etc/slurm-llnl/slurm.conf
-else
-echo "Saliendo"
-fi
+      echo "Su IP es $la_ip. ¿Es el nodo maestro?. Puede modificarla despues en /etc/slurm-llnl/slurm.conf "
+      echo "1. Si. Quiero añadirla automaticamente para que funcione el Cluster (la IP se añadira al archivo de configuracion)."
+      echo "2. No. No es la ip del nodo maestro. Tengo que cambiarla despues en  /etc/slurm-llnl/slurm.conf."
+      echo -n "Seleccione una opcion [1 - 2]"
+      read respuesta
+
+      if [ $respuesta = 1 ]
+      then
+      sed -i "s/ControlMachine=laptop/ControlMachine=$HOSTNAME/g" /etc/slurm-llnl/slurm.conf
+      sed -i "s/#ControlAddr=/ControlAddr=/g" /etc/slurm-llnl/slurm.conf
+      sed -i "s/ControlAddr=/ControlAddr=$la_ip/g" /etc/slurm-llnl/slurm.conf
+      else
+      echo "Saliendo"
+      fi
+     ;;
+     2)
+
+     ;;
+     *)
+        echo "Numero no reconocido."
+     ;;
+  esac
