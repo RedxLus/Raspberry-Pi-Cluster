@@ -68,7 +68,7 @@ echo -n "Seleccione una opcion [1 - 2]"
      2)
      ## SOLO NODOS SIMPLES ##
      echo ""
-     echo "¿cual es la IP del nodo MAESTRO?
+     echo "¿cual es la IP del nodo MAESTRO?"
      echo "Inserte:"
      read IP_Nodo_Maestro
      
