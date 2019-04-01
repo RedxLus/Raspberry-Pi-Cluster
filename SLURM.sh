@@ -2,9 +2,11 @@
 
 apt install ntpdate -y
 
+## CAMBIAR HOSTNAME ##
 wget https://raw.githubusercontent.com/RedxLus/Raspberry-Pi-Cluster/master/Archivos/Nuevo-hostname-propio.sh --no-check-certificate
 sh Nuevo-hostname-propio.sh
 
+## ANADIR NUEVAS IPs + HostNames ##
 echo "a. Añadir muchas IPs y Hostnames" 
 echo "b. Añadir solo 1" 
 echo -n "Seleccione una opcion [a - b]"
@@ -25,6 +27,7 @@ echo -n "Seleccione una opcion [a - b]"
      ;;
   esac
 
+## INSTALAR SLURM ##
 apt install slurm-wlm -y
 cd /etc/slurm-llnl
 cp /usr/share/doc/slurm-client/examples/slurm.conf.simple.gz .
