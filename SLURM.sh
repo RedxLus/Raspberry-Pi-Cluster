@@ -36,7 +36,7 @@ cp /usr/share/doc/slurm-client/examples/slurm.conf.simple.gz .
 gzip -d slurm.conf.simple.gz
 mv slurm.conf.simple slurm.conf
 
-## SOLO NODO MAESTRO (CONTROLADOR) ##
+## ¿NODO MAESTRO (CONTROLADOR) O NODO SIMPLE? ##
 echo ""
 echo "¿Es el nodo MAESTRO o un nodo SIMPLE?"
 echo "1. Nodo MAESTRO (Controlador)" 
@@ -45,6 +45,7 @@ echo -n "Seleccione una opcion [1 - 2]"
   read maestro_simple_nodos
   case $maestro_simple_nodos in
      1)
+     ## SOLO NODO MAESTRO (CONTROLADOR) ##
       apt-get install net-tools
       la_ip=$(ifconfig|awk 'NR == 2'|awk '{print $2}'|cut -d ':' -f2)
 
@@ -64,6 +65,20 @@ echo -n "Seleccione una opcion [1 - 2]"
       fi
      ;;
      2)
+     ## SOLO NODOS SIMPLES ##
+     echo ""
+     echo "¿cual es la IP del nodo MAESTRO?
+     echo "Inserte:"
+     read IP_Nodo_Maestro
+     
+     echo ""
+     echo "¿cual es el hostname del nodo MAESTRO?
+     echo "Inserte:"
+     read HOST_Nodo_Maestro
+
+      sed -i "s/ControlMachine=laptop/ControlMachine=$HOST_Nodo_Maestro/g" /etc/slurm-llnl/slurm.conf
+      sed -i "s/#ControlAddr=/ControlAddr=/g" /etc/slurm-llnl/slurm.conf
+      sed -i "s/ControlAddr=/ControlAddr=$IP_Nodo_Maestro/g" /etc/slurm-llnl/slurm.conf
 
      ;;
      *)
