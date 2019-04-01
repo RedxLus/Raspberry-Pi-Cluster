@@ -5,6 +5,7 @@ apt install ntpdate -y
 ## CAMBIAR HOSTNAME ##
 wget https://raw.githubusercontent.com/RedxLus/Raspberry-Pi-Cluster/master/Archivos/Nuevo-hostname-propio.sh --no-check-certificate
 sh Nuevo-hostname-propio.sh
+clear
 
 ## ANADIR NUEVAS IPs + HostNames ##
 echo "a. Añadir muchas IPs y Hostnames" 
