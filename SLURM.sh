@@ -49,5 +49,3 @@ sed -i "s/ControlAddr=/ControlAddr=$la_ip/g" /etc/slurm-llnl/slurm.conf
 else
 echo "Saliendo"
 fi
-
-reboot
