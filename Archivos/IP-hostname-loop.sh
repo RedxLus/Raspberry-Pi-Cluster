@@ -9,10 +9,10 @@ read FINAL
 for x in $(seq 1 $FINAL)
 do
 echo "Inserte la IP$x:"
-read ip0$x
+read ip00
 echo "Inserte el hostname$x:"
-read hostname0$x
-echo "$ip0$x      $hostname0$x" >> $archivohosts
+read hostname00
+echo "$ip00      $hostname00" >> $archivohosts
 sleep 2
 done
 
