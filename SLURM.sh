@@ -73,7 +73,7 @@ echo -n "Seleccione una opcion [1 - 2]"
      read IP_Nodo_Maestro
      
      echo ""
-     echo "¿cual es el hostname del nodo MAESTRO?
+     echo "¿cual es el hostname del nodo MAESTRO?"
      echo "Inserte:"
      read HOST_Nodo_Maestro
 
