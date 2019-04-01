@@ -58,7 +58,8 @@ echo -n "Seleccione una opcion [1 - 2]"
 
       if [ $respuesta = 1 ]
       then
-      sed -i "s/ControlMachine=laptop/ControlMachine=$HOSTNAME/g" /etc/slurm-llnl/slurm.conf
+      hostname_maestro_este=$(hostname)
+      sed -i "s/ControlMachine=laptop/ControlMachine=$hostname_maestro_este/g" /etc/slurm-llnl/slurm.conf
       sed -i "s/#ControlAddr=/ControlAddr=/g" /etc/slurm-llnl/slurm.conf
       sed -i "s/ControlAddr=/ControlAddr=$la_ip/g" /etc/slurm-llnl/slurm.conf
       else
