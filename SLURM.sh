@@ -19,9 +19,9 @@ echo -n "Seleccione una opcion [a - b]"
         sh IP-hostname-loop.sh
      ;;
      b|B)
-        wget https://raw.githubusercontent.com/RedxLus/Raspberry-Pi-Cluster/master/Archivos/ips-hosts.sh --no-check-certificate
-        chmod +x ips-hosts.sh
-        sh ips-hosts.sh
+        wget https://raw.githubusercontent.com/RedxLus/Raspberry-Pi-Cluster/master/Archivos/ip-host-simple.sh --no-check-certificate
+        chmod +x ip-host-simple.sh
+        sh ip-host-simple.sh
      ;;
      *)
         echo "Numero no reconocido."
