@@ -89,11 +89,11 @@ echo -n "Seleccione una opcion [1 - 2]"
   esac
 
 ## ÚLTIMO ##
-      
+## Borrar ejemplos por defecto ##
 sed -i "s/NodeName=server Procs=1 State=UNKNOWN//g" /etc/slurm-llnl/slurm.conf
 sed -i "s/PartitionName=debug Nodes=server Default=YES MaxTime=INFINITE State=UP//g" /etc/slurm-llnl/slurm.conf
-
-echo "nombre cluster"
+## Añadir los nuestros ##
+echo "Palabra (nombre) para identificar el cluster"
 read nombre_cluster
 echo "hostname general sin numero"
 read hostname
