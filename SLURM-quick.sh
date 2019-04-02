@@ -23,9 +23,9 @@ echo -n "Seleccione una opcion [a - b]"
   read ip_y_hostname
   case $ip_y_hostname in
      a|A)
-        wget https://raw.githubusercontent.com/RedxLus/Raspberry-Pi-Cluster/master/Archivos/IP-hostname-loop.sh --no-check-certificate
-        chmod +x IP-hostname-loop.sh
-        sh IP-hostname-loop.sh
+        wget https://github.com/RedxLus/Raspberry-Pi-Cluster/blob/master/Archivos/IP-hostname-loop-slurm-quick.sh --no-check-certificate
+        chmod +x IP-hostname-loop-slurm-quick.sh
+        sh IP-hostname-loop-slurm-quick.sh
      ;;
      b|B)
         wget https://raw.githubusercontent.com/RedxLus/Raspberry-Pi-Cluster/master/Archivos/ip-host-simple.sh --no-check-certificate
@@ -92,10 +92,6 @@ echo -n "Seleccione una opcion [1 - 2]"
       
 sed -i "s/NodeName=server Procs=1 State=UNKNOWN//g" /etc/slurm-llnl/slurm.conf
 sed -i "s/PartitionName=debug Nodes=server Default=YES MaxTime=INFINITE State=UP//g" /etc/slurm-llnl/slurm.conf
-  #añadir hostnames e ips otra vez#
-wget https://raw.githubusercontent.com/RedxLus/Raspberry-Pi-Cluster/master/Archivos/IP-hostname-loop-slurm.sh --no-check-certificate
-chmod +x IP-hostname-loop-slurm.sh
-sh IP-hostname-loop-slurm.sh
 
 echo "nombre cluster"
 read nombre_cluster
