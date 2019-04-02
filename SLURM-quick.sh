@@ -23,7 +23,7 @@ echo -n "Seleccione una opcion [a - b]"
   read ip_y_hostname
   case $ip_y_hostname in
      a|A)
-        wget https://github.com/RedxLus/Raspberry-Pi-Cluster/blob/master/Archivos/IP-hostname-loop-slurm-quick.sh --no-check-certificate
+        wget https://raw.githubusercontent.com/RedxLus/Raspberry-Pi-Cluster/master/Archivos/IP-hostname-loop-slurm-quick.sh --no-check-certificate
         chmod +x IP-hostname-loop-slurm-quick.sh
         sh IP-hostname-loop-slurm-quick.sh
      ;;
