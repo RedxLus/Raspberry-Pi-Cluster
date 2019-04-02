@@ -93,7 +93,9 @@ echo -n "Seleccione una opcion [1 - 2]"
 sed -i "s/NodeName=server Procs=1 State=UNKNOWN//g" /etc/slurm-llnl/slurm.conf
 sed -i "s/PartitionName=debug Nodes=server Default=YES MaxTime=INFINITE State=UP//g" /etc/slurm-llnl/slurm.conf
   #añadir hostnames e ips otra vez#
-https://raw.githubusercontent.com/RedxLus/Raspberry-Pi-Cluster/master/Archivos/IP-hostname-loop-slurm.sh
+wget https://raw.githubusercontent.com/RedxLus/Raspberry-Pi-Cluster/master/Archivos/IP-hostname-loop-slurm.sh --no-check-certificate
+chmod +x IP-hostname-loop-slurm.sh
+sh IP-hostname-loop-slurm.sh
 
 echo "nombre cluster"
 read nombre_cluster
