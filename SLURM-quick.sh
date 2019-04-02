@@ -1,5 +1,6 @@
 #! /bin/bash
 
+## Sincronizar fecha y hora ##
 apt install ntpdate -y
 
 ## INSTALAR SLURM ##
@@ -17,7 +18,7 @@ sh Nuevo-hostname-propio.sh
 clear
 
 ## ANADIR NUEVAS IPs + HostNames ##
-echo "a. Añadir muchas IPs y Hostnames" 
+echo "a. Añadir varias IPs y Hostnames" 
 echo "b. Añadir solo 1" 
 echo -n "Seleccione una opcion [a - b]"
   read ip_y_hostname
