@@ -2,6 +2,7 @@
 
 ## Sincronizar fecha y hora ##
 apt install ntpdate -y
+apt-get install -y libmunge-dev libmunge2 munge
 
 ## INSTALAR SLURM ##
   apt install slurm-wlm -y
