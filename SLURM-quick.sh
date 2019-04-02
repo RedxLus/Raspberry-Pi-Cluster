@@ -2,6 +2,15 @@
 
 apt install ntpdate -y
 
+## INSTALAR SLURM ##
+  apt install slurm-wlm -y
+
+## Configuracion por defecto ##
+  cd /etc/slurm-llnl
+  cp /usr/share/doc/slurm-client/examples/slurm.conf.simple.gz .
+  gzip -d slurm.conf.simple.gz
+  mv slurm.conf.simple slurm.conf
+
 ## CAMBIAR HOSTNAME ##
 wget https://raw.githubusercontent.com/RedxLus/Raspberry-Pi-Cluster/master/Archivos/Nuevo-hostname-propio.sh --no-check-certificate
 sh Nuevo-hostname-propio.sh
@@ -27,15 +36,6 @@ echo -n "Seleccione una opcion [a - b]"
         echo "Numero no reconocido."
      ;;
   esac
-
-## INSTALAR SLURM ##
-apt install slurm-wlm -y
-
-## Configuracion por defecto ##
-cd /etc/slurm-llnl
-cp /usr/share/doc/slurm-client/examples/slurm.conf.simple.gz .
-gzip -d slurm.conf.simple.gz
-mv slurm.conf.simple slurm.conf
 
 ## ¿NODO MAESTRO (CONTROLADOR) O NODO SIMPLE? ##
 echo ""
