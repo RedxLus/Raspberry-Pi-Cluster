@@ -103,3 +103,11 @@ read INICIO
 echo "final numero"
 read FINAL
 echo "PartitionName=$nombre_cluster Nodes=$hostname[$INICIO-$FINAL] Default=YES MaxTime=INFINITE State=UP" >> /etc/slurm-llnl/slurm.conf
+
+
+## Activacion servicios ##
+
+systemctl enable munge
+systemctl start munge
+systemctl enable slurmd
+systemctl start slurmd
