@@ -3,23 +3,23 @@
 # 1. quemar
 # 2. archivo ssh
 # 3. hostname
-  sudo raspi-config
+raspi-config
 # 4. Ip estatica
   echo "profile static_eth0" >> /etc/dhcpcd.conf
   echo "static ip_address=192.168.0.100/24" >> /etc/dhcpcd.conf
   echo "static routers=192.168.0.1" >> /etc/dhcpcd.conf
   echo "static domain_name_servers=8.8.8.8" >> /etc/dhcpcd.conf
 # 5. Dockers
-apt install apt-transport-https ca-certificates curl gnupg2 software-properties-common
+apt install apt-transport-https ca-certificates curl gnupg2 software-properties-common -y
 curl -fsSL https://download.docker.com/linux/$(. /etc/os-release; echo "$ID")/gpg | apt-key add -
 sudo echo "deb [arch=armhf] https://download.docker.com/linux/$(. /etc/os-release; echo "$ID") \
      $(lsb_release -cs) stable" | \
     sudo tee /etc/apt/sources.list.d/docker.list
-sudo apt update
-sudo apt install docker-ce
-sudo systemctl enable docker
-sudo systemctl start docker
-sudo groupadd docker
+apt update
+apt install docker-ce
+systemctl enable docker
+systemctl start docker
+groupadd docker
  ##### sudo usermod -aG docker $USER
 # 6. Swap
 sudo dphys-swapfile swapoff && \
