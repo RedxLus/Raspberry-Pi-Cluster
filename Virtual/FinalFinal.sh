@@ -59,3 +59,38 @@ curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add
   sudo apt-get install -qy kubeadm
 
 
+aptitude search '~i(!~ODebian)'
+sudo apt-get update
+sudo apt-get upgrade -y
+sudo apt-get dist-upgrade -y
+dpkg -C
+apt-mark showhold
+dpkg --audit
+
+sudo cp /etc/apt/sources.list /etc/apt/sources.list_backup
+sudo apt edit-sources
+  deb http://httpredir.debian.org/debian stretch main
+  deb http://httpredir.debian.org/debian stretch-updates main
+  deb http://security.debian.org stretch/updates main
+  deb http://httpredir.debian.org/debian buster main
+  deb http://httpredir.debian.org/debian buster-updates main
+  deb http://security.debian.org buster/updates main
+sudo apt update
+sudo apt-get dist-upgrade
+
+
+
+
+
+<< --DEBUG--
+
+    kubectl get nodes
+
+    kubectl describe nodes
+
+    journalctl -u kubelet
+
+--DEBUG--
+
+# GET TOKEN AND SHA
+#        kubeadm token create --print-join-command
