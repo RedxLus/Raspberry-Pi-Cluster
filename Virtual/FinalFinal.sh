@@ -8,7 +8,7 @@ echo -n "Seleccione una opcion [si - no]"
   read cambiohostname
   case $cambiohostname in
      si)
-        raspi-config
+       sudo raspi-config
      ;;
      no)
         echo "Saliendo"
