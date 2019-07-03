@@ -48,10 +48,10 @@ sudo dphys-swapfile swapoff && \
   sudo update-rc.d dphys-swapfile remove
 sudo swapon --summary
 # 7. cmd
-nano /boot/cmdline.txt
+sudo nano /boot/cmdline.txt
  #### cgroup_enable=cpuset cgroup_memory=1 cgroup_enable=memory
 # 8. reboot
-reboot
+sudo reboot
 # 9. Kubeadm
 curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add - && \
   echo "deb http://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list && \
